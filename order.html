@@ -121,47 +121,32 @@
         document.querySelectorAll('.fade-in-up').forEach((el) => observer.observe(el));
     </script>
     <script>
-    document.getElementById('formOrder').addEventListener('submit', async function(e) {
-        e.preventDefault(); // Mencegah web reload saat disubmit
+    document.getElementById('formOrder').addEventListener('submit', function(e) {
+        e.preventDefault(); // Mencegah web me-reload
+
+        // 1. Ganti dengan nomor Admin Anda (Gunakan awalan 62 tanpa +)
+        const nomorAdmin = "62895327022005"; 
+
+        // 2. Mengambil data yang diisi pelanggan dari form
+        const nama = document.getElementById('nama').value;
+        const kategori = document.getElementById('kategori').value;
+        const deadline = document.getElementById('deadline').value;
+        const deskripsi = document.getElementById('deskripsi').value;
+
+        // 3. Menyusun format pesan yang akan muncul di WA pelanggan
+        const teksPesan = `Halo Admin Joki Tugas Lampung! 👋\n\nSaya ingin memesan jasa joki dengan detail berikut:\n\n*Nama:* ${nama}\n*Kategori Tugas:* ${kategori}\n*Deadline:* ${deadline}\n*Deskripsi Tugas:*\n_${deskripsi}_\n\nMohon informasi ketersediaan dan total biayanya ya kak. Terima kasih!`;
+
+        // 4. Mengubah teks menjadi format URL (agar spasi dan enter terbaca di WA)
+        const teksEncode = encodeURIComponent(teksPesan);
+
+        // 5. Membuat link WhatsApp (wa.me)
+        const linkWA = `https://wa.me/${nomorAdmin}?text=${teksEncode}`;
+
+        // 6. Mengarahkan browser pelanggan ke aplikasi WhatsApp
+        window.open(linkWA, '_blank'); 
         
-        const btnSubmit = document.getElementById('btnSubmit');
-        btnSubmit.innerHTML = 'Memproses... <i class="bi bi-arrow-repeat animate-spin"></i>';
-        btnSubmit.disabled = true;
-
-        // Mengambil data dari form
-        const dataOrder = {
-            nama: document.getElementById('nama').value,
-            kategori: document.getElementById('kategori').value,
-            deadline: document.getElementById('deadline').value,
-            deskripsi: document.getElementById('deskripsi').value
-        };
-
-        try {
-            // Mengirim data ke Bot Node.js (API Server)
-            const response = await fetch('http://localhost:3000/api/order', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(dataOrder)
-            });
-
-            const result = await response.json();
-
-            if(response.ok) {
-                alert('Berhasil! Pesanan Anda telah terkirim ke Admin.');
-                document.getElementById('formOrder').reset(); // Mengosongkan form
-            } else {
-                alert('Gagal mengirim pesanan: ' + result.message);
-            }
-        } catch (error) {
-            alert('Bot Server sedang offline atau terjadi kesalahan koneksi.');
-            console.error(error);
-        } finally {
-            // Mengembalikan tombol seperti semula
-            btnSubmit.innerHTML = '<i class="bi bi-send-fill"></i> Pesan Sekarang';
-            btnSubmit.disabled = false;
-        }
+        // (Opsional) Mengosongkan form setelah dialihkan
+        document.getElementById('formOrder').reset();
     });
 </script>
 </body>
