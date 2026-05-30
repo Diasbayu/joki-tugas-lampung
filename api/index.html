@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="id" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joki Tugas Lampung | Profesional S1-S3</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50: '#eff6ff', 100: '#dbeafe', 400: '#60a5fa', 500: '#3b82f6', 600: '#2563eb', 800: '#1e40af', 900: '#1e3a8a' },
+                        slate: { 800: '#1e293b', 900: '#0f172a' } // Cinematic dark mode palette
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-brand-50 text-gray-800 dark:bg-slate-900 dark:text-gray-200 transition-colors duration-300">
+
+    <!-- Navbar -->
+    <nav class="bg-white dark:bg-slate-800 shadow-md fixed w-full z-50 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold text-brand-600 dark:text-brand-400">
+                        <i class="bi bi-journal-check"></i> JokiTugas<span class="text-gray-800 dark:text-white">Lampung</span>
+                    </span>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <a href="index.php" class="font-semibold text-gray-700 hover:text-brand-600 dark:text-gray-300 dark:hover:text-brand-400 hidden md:block">Home</a>
+                    <a href="order.php" class="font-bold text-brand-600 hover:text-brand-800 dark:text-brand-400 hidden md:block">Order Project</a>
+                    
+                    <button id="theme-toggle" class="p-2 rounded-lg bg-gray-200 dark:bg-slate-700 hover:bg-gray-300 dark:hover:bg-slate-600 transition">
+                        <i class="bi bi-moon-fill dark:hidden"></i>
+                        <i class="bi bi-sun-fill hidden dark:block text-yellow-400"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-12 px-4 sm:px-6 lg:px-8 text-center max-w-4xl mx-auto" data-aos="fade-up">
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-4 text-gray-900 dark:text-white">
+            Solusi Cerdas & Tepat Waktu untuk <span class="text-brand-600 dark:text-brand-400">Tugas Anda</span>
+        </h1>
+        <p class="text-lg md:text-xl mb-8 text-gray-600 dark:text-gray-400">
+            Dikerjakan langsung oleh tim profesional S1-S3. Percayakan kebutuhan akademik dan IT Anda kepada kami.
+        </p>
+        <a href="order.php" class="inline-block bg-brand-600 hover:bg-brand-800 text-white font-bold py-3 px-8 rounded-full shadow-lg transition transform hover:scale-105">
+            Mulai Order Sekarang <i class="bi bi-arrow-right ml-2"></i>
+        </a>
+    </section>
+
+    <!-- Bagian Cara Order & Statistik (Sesuai Referensi Gambar) -->
+    <section class="py-16 bg-white dark:bg-slate-800 transition-colors duration-300 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- Kiri: Flowchart Proses Order (Pamflet Style) -->
+                <div data-aos="fade-right" data-aos-duration="1000" class="relative bg-brand-50 dark:bg-slate-900 p-8 rounded-3xl shadow-lg border border-brand-100 dark:border-slate-700">
+                    <h3 class="text-2xl font-black text-center mb-8 text-gray-800 dark:text-white uppercase tracking-wider">
+                        <span class="text-brand-600 dark:text-brand-400">Proses Jasa</span><br>Joki Tugas
+                    </h3>
+                    
+                    <!-- Vertical Timeline -->
+                    <div class="space-y-6 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-1 before:bg-gradient-to-b before:from-brand-400 before:to-brand-600">
+                        
+                        <!-- Step 1 -->
+                        <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group" data-aos="fade-up" data-aos-delay="100">
+                            <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-brand-50 dark:border-slate-900 bg-brand-500 text-white shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow z-10">
+                                1
+                            </div>
+                            <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-brand-500 text-white p-3 rounded-lg shadow-md font-bold text-center transform transition hover:scale-105">
+                                Chat Mimin
+                            </div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group" data-aos="fade-up" data-aos-delay="200">
+                            <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-brand-50 dark:border-slate-900 bg-brand-500 text-white shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow z-10">
+                                2
+                            </div>
+                            <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-brand-500 text-white p-3 rounded-lg shadow-md font-bold text-center transform transition hover:scale-105">
+                                Konsultasi
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group" data-aos="fade-up" data-aos-delay="300">
+                            <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-brand-50 dark:border-slate-900 bg-brand-500 text-white shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow z-10">
+                                3
+                            </div>
+                            <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-brand-500 text-white p-3 rounded-lg shadow-md font-bold text-center transform transition hover:scale-105">
+                                Pembayaran
+                            </div>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group" data-aos="fade-up" data-aos-delay="400">
+                            <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-brand-50 dark:border-slate-900 bg-brand-500 text-white shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow z-10">
+                                <i class="bi bi-check-lg"></i>
+                            </div>
+                            <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-brand-600 text-white p-3 rounded-lg shadow-md font-bold text-center transform transition hover:scale-105">
+                                Proses Order
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kanan: Kenapa Memilih Kami & Statistik -->
+                <div data-aos="fade-left" data-aos-duration="1000">
+                    <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">"Kenapa Harus Jasa Tugas di Kami?"</h2>
+                    <p class="text-gray-600 dark:text-gray-400 mb-8 leading-relaxed text-justify">
+                        Joki Tugas Lampung adalah penyedia layanan unggulan dalam penyelesaian tugas di Indonesia. Kami mendedikasikan komitmen tinggi dengan para *expert* S1-S3 untuk memastikan kualitas terbaik untuk setiap project Anda, dari tugas sekolah hingga pengembangan aplikasi *enterprise*.
+                    </p>
+                    
+                    <!-- Grid Statistik Animasi -->
+                    <div class="grid grid-cols-2 gap-8" id="stats-container">
+                        <!-- Stat 1 -->
+                        <div class="flex items-center space-x-4">
+                            <i class="bi bi-laptop text-4xl text-brand-600 dark:text-brand-400"></i>
+                            <div>
+                                <div class="text-3xl font-extrabold text-gray-900 dark:text-white"><span class="counter" data-target="237">0</span></div>
+                                <div class="text-sm font-medium text-gray-500 dark:text-gray-400">Projects Completed</div>
+                            </div>
+                        </div>
+                        <!-- Stat 2 -->
+                        <div class="flex items-center space-x-4">
+                            <i class="bi bi-mortarboard text-4xl text-brand-600 dark:text-brand-400"></i>
+                            <div>
+                                <div class="text-3xl font-extrabold text-gray-900 dark:text-white"><span class="counter" data-target="5">0</span></div>
+                                <div class="text-sm font-medium text-gray-500 dark:text-gray-400">Universitas Berbeda</div>
+                            </div>
+                        </div>
+                        <!-- Stat 3 -->
+                        <div class="flex items-center space-x-4">
+                            <i class="bi bi-building text-4xl text-brand-600 dark:text-brand-400"></i>
+                            <div>
+                                <div class="text-3xl font-extrabold text-gray-900 dark:text-white"><span class="counter" data-target="16">0</span></div>
+                                <div class="text-sm font-medium text-gray-500 dark:text-gray-400">Sekolah Berbeda</div>
+                            </div>
+                        </div>
+                        <!-- Stat 4 -->
+                        <div class="flex items-center space-x-4">
+                            <i class="bi bi-briefcase text-4xl text-brand-600 dark:text-brand-400"></i>
+                            <div>
+                                <div class="text-3xl font-extrabold text-gray-900 dark:text-white"><span class="counter" data-target="4">0</span></div>
+                                <div class="text-sm font-medium text-gray-500 dark:text-gray-400">Perusahaan/Instansi</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-gray-400 py-6 text-center text-sm border-t border-slate-800">
+        <p>&copy; 2026 Joki Tugas Lampung. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Init Animasi Scroll
+        AOS.init({ once: true });
+
+        // Dark Mode Toggle
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            themeToggleBtn.querySelector('.bi-moon-fill').classList.toggle('hidden');
+            themeToggleBtn.querySelector('.bi-sun-fill').classList.toggle('hidden');
+        });
+
+        // Counter Animation (Hanya berjalan ketika elemen terlihat di layar)
+        const counters = document.querySelectorAll('.counter');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = +counter.getAttribute('data-target');
+                    const duration = 2000; // 2 detik
+                    const increment = target / (duration / 16); // 60 FPS
+                    
+                    let currentCount = 0;
+                    const updateCounter = () => {
+                        currentCount += increment;
+                        if (currentCount < target) {
+                            counter.innerText = Math.ceil(currentCount);
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    };
+                    updateCounter();
+                    observer.unobserve(counter); // Hentikan observasi setelah jalan 1x
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(counter => observer.observe(counter));
+    </script>
+</body>
+</html>
