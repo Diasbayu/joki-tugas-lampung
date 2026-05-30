@@ -142,8 +142,8 @@
         // 5. Membuat link WhatsApp (wa.me)
         const linkWA = `https://wa.me/${nomorAdmin}?text=${teksEncode}`;
 
-        // 6. Mengarahkan browser pelanggan ke aplikasi WhatsApp
-        window.open(linkWA, '_blank'); 
+        // Ganti dengan ini agar aman dari pemblokiran
+window.location.href = linkWA;
         
         // (Opsional) Mengosongkan form setelah dialihkan
         document.getElementById('formOrder').reset();
