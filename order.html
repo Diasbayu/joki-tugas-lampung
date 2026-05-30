@@ -60,42 +60,39 @@
             <h1 class="text-3xl font-bold text-center mb-2 text-gray-900 dark:text-white">Formulir Pemesanan</h1>
             <p class="text-center text-gray-500 dark:text-gray-400 mb-8">Lengkapi detail project atau tugas yang ingin Anda percayakan kepada kami.</p>
             
-            <form action="#" method="POST" class="space-y-6">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- Nama -->
-                    <div>
-                        <label class="block text-sm font-medium mb-1">Nama Lengkap / Samaran</label>
-                        <input type="text" class="w-full px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 border-transparent focus:border-brand-500 focus:bg-white dark:focus:bg-gray-600 focus:ring-0 transition" placeholder="Contoh: Budi">
-                    </div>
-                    <!-- Kategori -->
-                    <div>
-                        <label class="block text-sm font-medium mb-1">Kategori Tugas</label>
-                        <select class="w-full px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 border-transparent focus:border-brand-500 focus:bg-white dark:focus:bg-gray-600 focus:ring-0 transition">
-                            <option>Tugas Sekolah</option>
-                            <option>Tugas Kuliah (Makalah/Skripsi)</option>
-                            <option>Olah Data (SPSS/NVivo)</option>
-                            <option>Pembuatan Aplikasi / Web</option>
-                            <option>EA Trading</option>
-                        </select>
-                    </div>
-                </div>
+           <form id="formOrder" class="space-y-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+            <label class="block text-sm font-medium mb-1">Nama Lengkap / Samaran</label>
+            <input type="text" id="nama" required class="w-full px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 border-transparent focus:border-brand-500 focus:bg-white dark:focus:bg-gray-600 focus:ring-0 transition" placeholder="Contoh: Budi">
+        </div>
+        <div>
+            <label class="block text-sm font-medium mb-1">Kategori Tugas</label>
+            <select id="kategori" class="w-full px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 border-transparent focus:border-brand-500 focus:bg-white dark:focus:bg-gray-600 focus:ring-0 transition">
+                <option>Tugas Sekolah</option>
+                <option>Tugas Kuliah (Makalah/Skripsi)</option>
+                <option>Olah Data (SPSS/NVivo)</option>
+                <option>Pembuatan Aplikasi / Web</option>
+                <option>EA Trading</option>
+            </select>
+        </div>
+    </div>
 
-                <!-- Tenggat Waktu -->
-                <div>
-                    <label class="block text-sm font-medium mb-1">Deadline / Tenggat Waktu</label>
-                    <input type="date" class="w-full px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 border-transparent focus:border-brand-500 focus:bg-white dark:focus:bg-gray-600 focus:ring-0 transition">
-                </div>
+    <div>
+        <label class="block text-sm font-medium mb-1">Deadline / Tenggat Waktu</label>
+        <input type="date" id="deadline" required class="w-full px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 border-transparent focus:border-brand-500 focus:bg-white dark:focus:bg-gray-600 focus:ring-0 transition">
+    </div>
 
-                <!-- Deskripsi -->
-                <div>
-                    <label class="block text-sm font-medium mb-1">Deskripsi Detail Project</label>
-                    <textarea rows="4" class="w-full px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 border-transparent focus:border-brand-500 focus:bg-white dark:focus:bg-gray-600 focus:ring-0 transition" placeholder="Jelaskan spesifikasi tugas, format yang diinginkan, dsb..."></textarea>
-                </div>
+    <div>
+        <label class="block text-sm font-medium mb-1">Deskripsi Detail Project</label>
+        <textarea id="deskripsi" required rows="4" class="w-full px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 border-transparent focus:border-brand-500 focus:bg-white dark:focus:bg-gray-600 focus:ring-0 transition" placeholder="Jelaskan spesifikasi tugas..."></textarea>
+    </div>
 
-                <button type="button" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 px-4 rounded-xl shadow-lg transition transform hover:-translate-y-1">
-                    <i class="bi bi-send-fill"></i> Kirim Form & Lanjut ke WhatsApp
-                </button>
-            </form>
+    <!-- Tambahkan id="btnSubmit" pada tombol -->
+    <button type="submit" id="btnSubmit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 px-4 rounded-xl shadow-lg transition transform hover:-translate-y-1">
+        <i class="bi bi-send-fill"></i> Pesan Sekarang
+    </button>
+</form>
         </div>
     </section>
 
@@ -123,5 +120,49 @@
         });
         document.querySelectorAll('.fade-in-up').forEach((el) => observer.observe(el));
     </script>
+    <script>
+    document.getElementById('formOrder').addEventListener('submit', async function(e) {
+        e.preventDefault(); // Mencegah web reload saat disubmit
+        
+        const btnSubmit = document.getElementById('btnSubmit');
+        btnSubmit.innerHTML = 'Memproses... <i class="bi bi-arrow-repeat animate-spin"></i>';
+        btnSubmit.disabled = true;
+
+        // Mengambil data dari form
+        const dataOrder = {
+            nama: document.getElementById('nama').value,
+            kategori: document.getElementById('kategori').value,
+            deadline: document.getElementById('deadline').value,
+            deskripsi: document.getElementById('deskripsi').value
+        };
+
+        try {
+            // Mengirim data ke Bot Node.js (API Server)
+            const response = await fetch('http://localhost:3000/api/order', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dataOrder)
+            });
+
+            const result = await response.json();
+
+            if(response.ok) {
+                alert('Berhasil! Pesanan Anda telah terkirim ke Admin.');
+                document.getElementById('formOrder').reset(); // Mengosongkan form
+            } else {
+                alert('Gagal mengirim pesanan: ' + result.message);
+            }
+        } catch (error) {
+            alert('Bot Server sedang offline atau terjadi kesalahan koneksi.');
+            console.error(error);
+        } finally {
+            // Mengembalikan tombol seperti semula
+            btnSubmit.innerHTML = '<i class="bi bi-send-fill"></i> Pesan Sekarang';
+            btnSubmit.disabled = false;
+        }
+    });
+</script>
 </body>
 </html>
