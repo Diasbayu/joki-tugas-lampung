@@ -34,7 +34,6 @@
 </head>
 <body class="bg-brand-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300 min-h-screen flex flex-col">
 
-    <!-- Navbar -->
     <nav class="bg-white dark:bg-gray-800 shadow-md fixed w-full z-10 transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
@@ -54,55 +53,56 @@
         </div>
     </nav>
 
-    <!-- Order Form Section -->
     <section class="pt-28 pb-12 px-4 sm:px-6 lg:px-8 flex-grow">
         <div class="max-w-3xl mx-auto bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 fade-in-up border-t-4 border-brand-500">
             <h1 class="text-3xl font-bold text-center mb-2 text-gray-900 dark:text-white">Formulir Pemesanan</h1>
             <p class="text-center text-gray-500 dark:text-gray-400 mb-8">Lengkapi detail project atau tugas yang ingin Anda percayakan kepada kami.</p>
             
-           <form id="formOrder" class="space-y-6">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div>
-            <label class="block text-sm font-medium mb-1">Nama Lengkap / Samaran</label>
-            <input type="text" id="nama" required class="w-full px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 border-transparent focus:border-brand-500 focus:bg-white dark:focus:bg-gray-600 focus:ring-0 transition" placeholder="Contoh: Budi">
-        </div>
-        <div>
-            <label class="block text-sm font-medium mb-1">Kategori Tugas</label>
-            <select id="kategori" class="w-full px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 border-transparent focus:border-brand-500 focus:bg-white dark:focus:bg-gray-600 focus:ring-0 transition">
-                <option>Tugas Sekolah</option>
-                <option>Tugas Kuliah (Makalah/Skripsi)</option>
-                <option>Olah Data (SPSS/NVivo)</option>
-                <option>Pembuatan Aplikasi / Web</option>
-                <option>EA Trading</option>
-                <option>Cek Turnitin</option>
-            </select>
-        </div>
-    </div>
+            <form id="formOrder" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Nama Lengkap / Samaran</label>
+                        <input type="text" id="nama" required class="w-full px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 border-transparent focus:border-brand-500 focus:bg-white dark:focus:bg-gray-600 focus:ring-0 transition" placeholder="Contoh: Budi">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Kategori Tugas</label>
+                        <select id="kategori" class="w-full px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 border-transparent focus:border-brand-500 focus:bg-white dark:focus:bg-gray-600 focus:ring-0 transition">
+                            <option>Tugas Sekolah</option>
+                            <option>Tugas Kuliah (Makalah/Skripsi)</option>
+                            <option>Olah Data (SPSS/NVivo)</option>
+                            <option>Pembuatan Aplikasi / Web</option>
+                            <option>EA Trading</option>
+                            <option>Cek Turnitin</option>
+                        </select>
+                    </div>
+                </div>
 
-    <div>
-        <label class="block text-sm font-medium mb-1">Deadline / Tenggat Waktu</label>
-        <input type="date" id="deadline" required class="w-full px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 border-transparent focus:border-brand-500 focus:bg-white dark:focus:bg-gray-600 focus:ring-0 transition">
-    </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1">Deadline / Tenggat Waktu</label>
+                    <input type="date" id="deadline" required class="w-full px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 border-transparent focus:border-brand-500 focus:bg-white dark:focus:bg-gray-600 focus:ring-0 transition">
+                </div>
 
-    <div>
-        <label class="block text-sm font-medium mb-1">Deskripsi Detail Project</label>
-        <textarea id="deskripsi" required rows="4" class="w-full px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 border-transparent focus:border-brand-500 focus:bg-white dark:focus:bg-gray-600 focus:ring-0 transition" placeholder="Jelaskan spesifikasi tugas..."></textarea>
-    </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1">Link File / Dokumen Pendukung (Opsional)</label>
+                    <input type="url" id="linkFile" class="w-full px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 border-transparent focus:border-brand-500 focus:bg-white dark:focus:bg-gray-600 focus:ring-0 transition" placeholder="Contoh: https://drive.google.com/...">
+                </div>
 
-    <!-- Tambahkan id="btnSubmit" pada tombol -->
-    <button type="submit" id="btnSubmit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 px-4 rounded-xl shadow-lg transition transform hover:-translate-y-1">
-        <i class="bi bi-send-fill"></i> Pesan Sekarang
-    </button>
-</form>
+                <div>
+                    <label class="block text-sm font-medium mb-1">Deskripsi Detail Project</label>
+                    <textarea id="deskripsi" required rows="4" class="w-full px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 border-transparent focus:border-brand-500 focus:bg-white dark:focus:bg-gray-600 focus:ring-0 transition" placeholder="Jelaskan spesifikasi tugas..."></textarea>
+                </div>
+
+                <button type="submit" id="btnSubmit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 px-4 rounded-xl shadow-lg transition transform hover:-translate-y-1">
+                    <i class="bi bi-send-fill"></i> Pesan Sekarang
+                </button>
+            </form>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-gray-900 text-gray-400 py-6 text-center text-sm mt-auto">
         <p>&copy; 2026 Joki Tugas Lampung. All rights reserved.</p>
     </footer>
 
-    <!-- Animations & Theme Script -->
     <script>
         // Dark Mode Toggle
         const themeToggleBtn = document.getElementById('theme-toggle');
@@ -121,36 +121,37 @@
         });
         document.querySelectorAll('.fade-in-up').forEach((el) => observer.observe(el));
     </script>
-<script>
-    document.getElementById('formOrder').addEventListener('submit', function(e) {
-        e.preventDefault(); // Mencegah web me-reload
+    
+    <script>
+        document.getElementById('formOrder').addEventListener('submit', function(e) {
+            e.preventDefault(); // Mencegah web me-reload
 
-        // 1. Ganti dengan nomor Admin Anda (Gunakan awalan 62 tanpa +)
-        const nomorAdmin = "62895327022005"; 
+            // Nomor Admin WhatsApp
+            const nomorAdmin = "62895327022005"; 
 
-        // 2. Mengambil data yang diisi pelanggan dari form
-        const nama = document.getElementById('nama').value;
-        const kategori = document.getElementById('kategori').value;
-        const linkFile = document.getElementById('linkFile').value;
-        const deadline = document.getElementById('deadline').value;
-        const deskripsi = document.getElementById('deskripsi').value;
+            // Mengambil data dari form
+            const nama = document.getElementById('nama').value;
+            const kategori = document.getElementById('kategori').value;
+            const linkFile = document.getElementById('linkFile').value; // Sekarang baris ini aman karena elemennya sudah ada
+            const deadline = document.getElementById('deadline').value;
+            const deskripsi = document.getElementById('deskripsi').value;
 
-        // 3. Menyusun format pesan yang akan muncul di WA pelanggan
-        let tambahanInfo = linkFile ? `\n*Link Dokumen:* ${linkFile}` : "";
-        const teksPesan = `Halo Joki Tugas Lampung! 👋\n\nSaya ingin memesan jasa ${kategori} dengan detail berikut:\n\n*Nama:* ${nama}\n*Kategori Tugas:* ${kategori}${tambahanInfo}\n*Deadline:* ${deadline}\n*Deskripsi Tugas:*\n_${deskripsi}_\n\nMohon informasi ketersediaan dan total biayanya ya kak. Terima kasih!`;
+            // Menyusun format pesan WhatsApp
+            let tambahanInfo = linkFile ? `\n*Link Dokumen:* ${linkFile}` : "";
+            const teksPesan = `Halo Joki Tugas Lampung! 👋\n\nSaya ingin memesan jasa ${kategori} dengan detail berikut:\n\n*Nama:* ${nama}\n*Kategori Tugas:* ${kategori}${tambahanInfo}\n*Deadline:* ${deadline}\n*Deskripsi Tugas:*\n_${deskripsi}_\n\nMohon informasi ketersediaan dan total biayanya ya kak. Terima kasih!`;
 
-        // 4. Mengubah teks menjadi format URL (agar spasi dan enter terbaca di WA)
-        const teksEncode = encodeURIComponent(teksPesan);
+            // Mengubah teks menjadi format URL
+            const teksEncode = encodeURIComponent(teksPesan);
 
-        // 5. Membuat link WhatsApp (wa.me)
-        const linkWA = `https://wa.me/${nomorAdmin}?text=${teksEncode}`;
+            // Membuat link WhatsApp
+            const linkWA = `https://wa.me/${nomorAdmin}?text=${teksEncode}`;
 
-        // Ganti dengan ini agar aman dari pemblokiran
-window.location.href = linkWA;
-        
-        // (Opsional) Mengosongkan form setelah dialihkan
-        document.getElementById('formOrder').reset();
-    });
-</script>
+            // Alihkan halaman ke WhatsApp admin
+            window.location.href = linkWA;
+            
+            // Mengosongkan form kembali setelah dialihkan
+            document.getElementById('formOrder').reset();
+        });
+    </script>
 </body>
 </html>
